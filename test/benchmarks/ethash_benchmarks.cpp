@@ -81,7 +81,7 @@ BENCHMARK(create_context)->Arg(333)->Unit(benchmark::kMillisecond);
 
 static void ethash_calculate_dataset_item_512(benchmark::State& state)
 {
-    auto& ctx = get_ethash_epoch_context_0();
+    const auto& ctx = get_ethash_epoch_context_0();
 
     for (auto _ : state)
     {
@@ -94,7 +94,7 @@ BENCHMARK(ethash_calculate_dataset_item_512);
 
 static void ethash_calculate_dataset_item_1024(benchmark::State& state)
 {
-    auto& ctx = get_ethash_epoch_context_0();
+    const auto& ctx = get_ethash_epoch_context_0();
 
     for (auto _ : state)
     {
@@ -107,7 +107,7 @@ BENCHMARK(ethash_calculate_dataset_item_1024);
 
 static void ethash_calculate_dataset_item_2048(benchmark::State& state)
 {
-    auto& ctx = get_ethash_epoch_context_0();
+    const auto& ctx = get_ethash_epoch_context_0();
 
     for (auto _ : state)
     {
@@ -188,7 +188,7 @@ static void verify_managed(benchmark::State& state)
 
     for (auto _ : state)
     {
-        auto& context = ethash::get_global_epoch_context(epoch_number);
+        const auto& context = ethash::get_global_epoch_context(epoch_number);
         ethash::verify_against_boundary(context, header_hash, mix_hash, nonce, boundary);
     }
 }

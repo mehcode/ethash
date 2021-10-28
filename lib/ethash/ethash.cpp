@@ -198,7 +198,7 @@ struct item_state
         mix = fnv1(mix, le::uint32s(cache[parent_index]));
     }
 
-    ALWAYS_INLINE hash512 final() noexcept { return keccak512(le::uint32s(mix)); }
+    ALWAYS_INLINE hash512 final() const noexcept { return keccak512(le::uint32s(mix)); }
 };
 
 hash512 calculate_dataset_item_512(const epoch_context& context, int64_t index) noexcept
