@@ -48,7 +48,7 @@ inline void keccak_default_aligned(uint64_t* out, const uint64_t* data, size_t s
     std::memcpy(block, data, size * sizeof(uint64_t));
 
     // Padding:
-    auto block_bytes = reinterpret_cast<unsigned char*>(block);
+    auto* block_bytes = reinterpret_cast<unsigned char*>(block);
     block_bytes[size * sizeof(uint64_t)] = 0x01;
     block_bytes[block_size - 1] |= 0x80;
 
@@ -90,7 +90,7 @@ inline void keccak_default(uint64_t* out, const uint8_t* data, size_t size) noex
     }
 
 
-    auto state_bytes = reinterpret_cast<uint8_t*>(state);
+    auto* state_bytes = reinterpret_cast<uint8_t*>(state);
     xor_into_state(state_bytes, data, size);
 
     state_bytes[size] ^= 0x01;
