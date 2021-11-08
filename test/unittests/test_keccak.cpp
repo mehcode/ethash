@@ -227,7 +227,7 @@ TEST(keccak, unaligned)
     for (size_t offset = 1; offset < sizeof(uint64_t); ++offset)
     {
         uint8_t *data = &buffer[offset];
-        std::strncpy(data, test_text, text_length);
+        std::memcpy(data, test_text, text_length);
 
         for (auto &t : test_cases)
         {
