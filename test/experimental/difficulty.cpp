@@ -9,6 +9,8 @@
 #pragma clang diagnostic ignored "-Wunknown-sanitizers"
 
 extern "C" {
+// Reduce complexity of this function and enable `readability-function-cognitive-complexity`
+// in clang-tidty.
 NO_SANITIZE("unsigned-integer-overflow")
 NO_SANITIZE("unsigned-shift-base")
 ethash_hash256 ethash_difficulty_to_boundary(const ethash_hash256* difficulty) noexcept
